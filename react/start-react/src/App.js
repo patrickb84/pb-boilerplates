@@ -1,10 +1,24 @@
-import "./styles/style.scss";
+import SiteNavbar from "./components/SiteNavbar";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import routes from "./routes";
 
 function App() {
   return (
-    <div>
-      <h1 className="display-1">Start</h1>
-    </div>
+    <Router>
+      <SiteNavbar />
+      <Switch>
+        {routes.map((route) => {
+          return (
+            <Route
+              key={route.name}
+              exact={route.exact}
+              path={route.path}
+              component={route.component}
+            />
+          );
+        })}
+      </Switch>
+    </Router>
   );
 }
 
