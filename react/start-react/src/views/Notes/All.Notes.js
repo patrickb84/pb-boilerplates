@@ -20,7 +20,7 @@ const AllNotes = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const note = { title, body, date: new Date() };
+    const note = { title, body }; // add dates in the model
     addNote(note);
   };
 
