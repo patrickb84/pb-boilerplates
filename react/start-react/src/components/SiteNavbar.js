@@ -1,10 +1,13 @@
-import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { Button, Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
-import routes from "../routes";
+import { primaryNavs } from "../routes";
+import AccountController from "../controllers/Account.Controller";
 
 const SiteNavbar = () => {
+  const { signOut } = AccountController();
+
   return (
-    <Navbar bg="dark" variant="dark" expand="md">
+    <Navbar bg="dark" variant="dark" expand="md" fixed="top">
       <Container>
         <LinkContainer to="/">
           <Navbar.Brand>App Brand</Navbar.Brand>
@@ -12,7 +15,7 @@ const SiteNavbar = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
-            {routes.map((route) => {
+            {primaryNavs.map((route) => {
               return (
                 <LinkContainer
                   key={route.name}
@@ -23,18 +26,16 @@ const SiteNavbar = () => {
                 </LinkContainer>
               );
             })}
-            {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
-            </NavDropdown> */}
           </Nav>
+
+          <LinkContainer to="/sign-in">
+            <Button variant="primary" className="ms-2">
+              Sign In
+            </Button>
+          </LinkContainer>
+          <Button variant="secondary" onClick={signOut} className="ms-1">
+            Sign Out
+          </Button>
         </Navbar.Collapse>
       </Container>
     </Navbar>

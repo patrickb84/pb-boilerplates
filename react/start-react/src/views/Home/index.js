@@ -1,7 +1,9 @@
 const Home = () => {
   return (
-    <div className="container py-5">
-      <h2 className="display-1">Home</h2>
+    <div className="bg-secondary py-5" style={{ height: "100%" }}>
+      <div className="container mt-4">
+        <h2>Home</h2>
+      </div>
     </div>
   );
 };
