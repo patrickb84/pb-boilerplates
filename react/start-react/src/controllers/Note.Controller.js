@@ -23,7 +23,7 @@ const NoteController = () => {
     await Note.update(note);
   };
 
-  return { getNotes, addNote, deleteNote, updateNote };
+  return { getNotes, addNote, deleteNote, updateNote, getNoteById };
 };
 
 export default NoteController;
