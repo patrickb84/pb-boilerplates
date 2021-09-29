@@ -1,11 +1,7 @@
 import { firebaseAuth as fb } from "../firebase";
 
-import { createUser, signIn } from "./email.auth";
-import {
-  signInGooglePopup,
-  signInGoogleRedirect,
-  signInGoogleRedirectToken,
-} from "./google.auth";
+import authEmail from "./email.auth";
+import authGoogle from "./google.auth";
 
 // Sign out
 const signOut = () => {
@@ -17,13 +13,5 @@ const signOut = () => {
   }
 };
 
-export default {
-  auth: fb.auth,
-  signOut,
-  createUser,
-  signIn,
-  signInGooglePopup,
-  signInGoogleRedirect,
-  signInGoogleRedirectToken,
-  onAuthStateChanged,
-};
+export { authEmail, authGoogle, signOut };
+export default { ...fb };

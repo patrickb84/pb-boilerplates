@@ -66,3 +66,9 @@ export const signInGoogleRedirectToken = async () => {
     throw error;
   }
 };
+
+export default {
+  signInGooglePopup,
+  signInGoogleRedirect,
+  signInGoogleRedirectToken,
+};

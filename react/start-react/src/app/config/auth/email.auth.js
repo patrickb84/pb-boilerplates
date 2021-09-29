@@ -11,7 +11,7 @@ export const createUser = async (email, password) => {
       email,
       password
     );
-    const { user } = await userCredential;
+    const { user } = userCredential;
     return user;
   } catch (error) {
     const errorCode = error.code;
@@ -30,7 +30,7 @@ export const signIn = async (email, password) => {
       email,
       password
     );
-    const { user } = await userCredential;
+    const { user } = userCredential;
     return user;
   } catch (error) {
     const errorCode = error.code;
@@ -40,3 +40,5 @@ export const signIn = async (email, password) => {
     throw error;
   }
 };
+
+export default { signIn, createUser };

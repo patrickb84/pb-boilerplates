@@ -19,6 +19,7 @@ const UserProvider = (props) => {
       } else {
         // User is signed out
         // ...
+        console.log("No user");
       }
     });
   }, []);

@@ -1,9 +1,9 @@
-import auth from "../app/config/auth";
+import { signOut, authEmail } from "../app/config/auth";
 
 const AccountController = () => {
   const signInEmail = async (email, password) => {
     try {
-      let user = await auth.signIn(email, password);
+      let user = authEmail.signIn(email, password);
       return user;
     } catch (error) {
       console.log("signInEmail error: ", { ...error });
@@ -11,10 +11,6 @@ const AccountController = () => {
   };
 
   const signInGoogle = () => {};
-
-  const signOut = () => {
-    auth.signOut();
-  };
 
   return {
     signInEmail,
