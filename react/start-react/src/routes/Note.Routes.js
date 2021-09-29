@@ -1,11 +1,20 @@
-import AllNotes from "../views/Notes/All.Notes";
+import AllNotes from '../views/Notes/All.Notes';
+import CreateNote from '../views/Notes/Create.Note';
 
 const allNotes = {
-  key: "allnotes",
-  name: "Notes",
+  key: 'allnotes',
+  name: 'Notes',
   component: AllNotes,
-  path: "/notes",
+  path: '/notes',
+  exact: true,
 };
 
-export const index = [allNotes];
-export default { allNotes };
+const createNote = {
+  key: 'createnote',
+  name: 'Create Note',
+  component: CreateNote,
+  path: '/notes/create',
+};
+
+export const index = [allNotes, createNote];
+export default { allNotes, createNote };

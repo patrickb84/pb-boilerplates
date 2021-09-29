@@ -1,27 +1,29 @@
-import Login from "../views/Account/Login";
-import SignUp from "../views/Account/SignUp";
-import Settings from "../views/Account/Settings";
+import Login from '../views/Account/Login';
+import SignUp from '../views/Account/SignUp';
+import Account from '../views/Account';
 
 const login = {
-  key: "signin",
-  name: "Sign In",
+  key: 'signin',
+  name: 'Sign In',
   component: Login,
-  path: "/sign-in",
+  path: '/sign-in',
 };
 
 const signUp = {
-  key: "signup",
-  name: "Sign Up",
+  key: 'signup',
+  name: 'Sign Up',
   component: SignUp,
-  path: "/sign-up",
+  path: '/sign-up',
 };
 
-const settings = {
-  key: "settings",
-  name: "Settings",
-  component: Settings,
-  path: "/settings",
+const account = {
+  key: 'account',
+  name: 'Account',
+  component: Account,
+  path: '/Account',
 };
 
-export const index = [login, signUp, settings];
-export default { login, signUp, settings };
+export const index = [login, signUp, account];
+
+const routes = { login, signUp, account };
+export default routes;
