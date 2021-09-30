@@ -1,29 +1,65 @@
-import Note from "../models/note";
+import Note from "../models/Note";
 
 // controllers job is to RESPOND to user's browser REQUESTS
 // so each of these functions would handle a REQ and return a RES (send feedback/errors and stuff)
 const NoteController = () => {
-  const getNotes = async () => {
-    return await Note.findAll();
+  const note = Note();
+
+  const index = () => {
+    try {
+      const data = note.selectAll();
+      // data ...
+      return data;
+    } catch (error) {
+      console.error(error.message);
+      // todo: handle
+    }
   };
 
-  const getNoteById = async (id) => {
-    return await Note.findById(id);
+  const detail = (id) => {
+    try {
+      const item = note.selectById(id);
+      // item ...
+      return item;
+    } catch (error) {
+      console.error(error.message);
+      // todo: handle
+    }
   };
 
-  const addNote = async (note) => {
-    await Note.create(note);
+  const create = (newNote) => {
+    try {
+      const noteId = note.insert(newNote);
+      return noteId;
+    } catch (error) {
+      console.error(error.message);
+      // todo: handle
+    }
   };
 
-  const deleteNote = async (id) => {
-    await Note.delete(id);
+  const edit = (updatedNote) => {
+    try {
+      note.update(updatedNote);
+    } catch (error) {
+      console.error(error.message);
+      // todo: handle
+    }
   };
 
-  const updateNote = async (note) => {
-    await Note.update(note);
+  const destroy = (id) => {
+    try {
+      note.destroy(id);
+    } catch (error) {
+      console.error(error.message);
+      // todo: handle
+    }
   };
 
-  return { getNotes, addNote, deleteNote, updateNote, getNoteById };
+  // search
+  // batch actions (batch select, delete, etc.)
+  // upload image...
+
+  return { index, detail, create, edit, destroy };
 };
 
 export default NoteController;

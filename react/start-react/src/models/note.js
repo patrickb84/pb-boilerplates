@@ -1,65 +1,35 @@
-import {
-  collection,
-  addDoc,
-  getDocs,
-  deleteDoc,
-  doc,
-  updateDoc,
-} from "firebase/firestore";
-import db from "../app/config/db";
+// models/Note.js
 
-const Note = () => {};
+/**
+ * Note object:
+ *   id, title, body. createdBy, createdAt, updatedBy, updatedAt
+ */
 
-Note.findAll = async () => {
-  try {
-    const querySnapshot = await getDocs(collection(db, "notes"));
-    const data = querySnapshot.docs.map((doc) => {
-      return { id: doc.id, ...doc.data() };
-    });
-    return data;
-  } catch (error) {
-    throw error;
-  }
-};
+const Note = () => {
+  const selectAll = () => {
+    // TODO
+    return [];
+  };
 
-Note.findById = async (id) => {
-  try {
-    return doc(db, "notes", id).data();
-  } catch (error) {
-    throw error;
-  }
-};
+  const selectById = (id) => {
+    // TODO
+    return {};
+  };
 
-Note.create = async (note) => {
-  try {
-    note.createdAt = new Date();
-    const docRef = await addDoc(collection(db, "notes"), { ...note });
-    console.log("Document written with ID: ", docRef.id);
-    return docRef.id;
-  } catch (error) {
-    throw error;
-  }
-};
+  const insert = (note) => {
+    // TODO
+    return (newId = 0);
+  };
 
-Note.delete = async (id) => {
-  try {
-    await deleteDoc(doc(db, "notes", id));
-  } catch (error) {
-    console.error("Error deleting document: ", error);
-    throw error;
-  }
-};
+  const update = (note) => {
+    // TODO
+  };
 
-Note.update = async (note) => {
-  try {
-    const { id, ...rest } = note;
-    const noteRef = doc(db, "notes", id);
+  const destroy = (id) => {
+    // TODO
+  };
 
-    await updateDoc(noteRef, { ...rest });
-  } catch (error) {
-    console.error("Error updating document: ", error);
-    throw error;
-  }
+  return { selectAll, selectById, insert, update, destroy };
 };
 
 export default Note;

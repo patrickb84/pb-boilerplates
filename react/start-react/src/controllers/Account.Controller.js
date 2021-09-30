@@ -1,40 +1,68 @@
-import { useHistory } from 'react-router';
-import { signOutApp, authEmail } from '../app/config/auth';
-import { useUserContext } from '../providers/UserProvider';
+import { useState } from "react";
 
 const AccountController = () => {
-  const user = useUserContext();
-  let history = useHistory();
+  const [activeUser, setActiveUser] = useState(null); // from elsewhere, like the provider
 
-  // account will be a firestore obj
-  const getAccount = () => {
-    return user;
+  const signIn = (email, password) => {
+    try {
+      // todo:
+      const user = {};
+      setActiveUser(user);
+    } catch (error) {
+      // todo:
+    }
   };
 
-  const signInEmail = async (email, password) => {
+  const signUp = (email, password, { ...data }) => {
     try {
-      let user = await authEmail.signIn(email, password);
-      return user;
+      // todo:
     } catch (error) {
-      console.error('Email sign in error: ', error);
+      // todo:
     }
   };
 
   const signOut = () => {
     try {
-      signOutApp();
-      history.push('/');
+      // todo:
+      setActiveUser(null);
     } catch (error) {
-      console.error('Sign out error: ', error);
+      // todo:
     }
   };
 
-  // const signInGoogle = () => {};
+  const updatePassword = (userId, newPassword) => {
+    try {
+      // todo:
+    } catch (error) {
+      // todo:
+    }
+  };
+
+  const forgotPassword = () => {
+    try {
+      // todo:
+    } catch (error) {
+      // todo:
+    }
+  };
+
+  const index = (user) => {
+    try {
+      // todo:
+      const settings = {};
+      return settings;
+    } catch (error) {
+      // todo:
+    }
+  };
 
   return {
-    signInEmail,
+    signIn,
+    signUp,
     signOut,
-    getAccount,
+    updatePassword,
+    forgotPassword,
+    index,
   };
 };
 
