@@ -1,7 +1,7 @@
 import { firebaseAuth } from '../firebase';
 
-import authEmail from './email.auth';
-import authGoogle from './google.auth';
+import authEmail from './auth.email';
+import authGoogle from './auth.google';
 
 // Sign out
 const signOutApp = () => {

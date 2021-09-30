@@ -1,7 +1,7 @@
-import { useUserContext } from "../../providers/UserProvider";
+import { useAccountContext } from "../../logic/Account.Provider";
 
 const Account = () => {
-  const user = useUserContext();
+  const user = useAccountContext();
 
   console.log(user);
 

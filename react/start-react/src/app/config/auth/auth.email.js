@@ -1,4 +1,4 @@
-import { firebaseAuth } from "../firebase";
+import { firebaseAuth } from '../firebase';
 
 const { auth, createUserWithEmailAndPassword, signInWithEmailAndPassword } =
   firebaseAuth;

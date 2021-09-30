@@ -1,7 +1,5 @@
 import Note from "../models/Note";
 
-// controllers job is to RESPOND to user's browser REQUESTS
-// so each of these functions would handle a REQ and return a RES (send feedback/errors and stuff)
 const NoteController = () => {
   const note = Note();
 

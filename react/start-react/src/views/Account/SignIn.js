@@ -1,20 +1,19 @@
 import { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { useHistory } from 'react-router';
-import AccountController from '../../controllers/Account.Controller';
+import AccountController from '../../logic/Account.Controller';
 
 const Login = () => {
-  const { signInEmail } = AccountController();
+  const { signInEmail, activeUser } = AccountController();
   let history = useHistory();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSubmit = async e => {
+  const handleSubmit = e => {
     e.preventDefault();
     try {
-      await signInEmail(email, password);
-      history.push('/');
+      signInEmail(email, password);
     } catch (error) {
       console.error(error);
     }
@@ -25,6 +24,7 @@ const Login = () => {
       <div className='my-4 h-100 d-flex align-items-center justify-content-center'>
         <div>
           <div className='card card-body mb-5' style={{ width: '500px' }}>
+            {activeUser && <small className="bg-light">{activeUser.email}</small>}
             <Form onSubmit={handleSubmit}>
               <Form.Group className='mb-3' controlId='formBasicEmail'>
                 <Form.Label>Email address</Form.Label>
