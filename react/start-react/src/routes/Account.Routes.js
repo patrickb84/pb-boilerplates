@@ -1,26 +1,26 @@
-import Login from '../views/Account/Login';
-import SignUp from '../views/Account/SignUp';
-import Account from '../views/Account';
+import Login from "../views/Account/SignIn";
+import SignUp from "../views/Account/SignUp";
+import Account from "../views/Account";
 
 const login = {
-  key: 'signin',
-  name: 'Sign In',
+  key: "signin",
+  name: "Sign In",
   component: Login,
-  path: '/sign-in',
+  path: "/sign-in",
 };
 
 const signUp = {
-  key: 'signup',
-  name: 'Sign Up',
+  key: "signup",
+  name: "Sign Up",
   component: SignUp,
-  path: '/sign-up',
+  path: "/sign-up",
 };
 
 const account = {
-  key: 'account',
-  name: 'Account',
+  key: "account",
+  name: "Account",
   component: Account,
-  path: '/Account',
+  path: "/Account",
 };
 
 export const index = [login, signUp, account];
