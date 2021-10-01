@@ -1,23 +1,17 @@
-import SiteNavbar from './views/components/SiteNavbar';
+import NavBar from './components/NavBar';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import Routes from './routes';
+// routes
+import Home from './views/Home';
+import LoginPage from './views/Login/LoginPage';
 
 function App() {
   return (
     <Router>
-      <SiteNavbar />
+      <NavBar />
       <Switch>
-        {Routes.map(route => {
-          return (
-            <Route
-              key={route.name}
-              exact={route.exact}
-              path={route.path}
-              component={route.component}
-            />
-          );
-        })}
+        <Route exact path='/' component={Home} />
+        <Route path='/login' component={LoginPage} />
       </Switch>
     </Router>
   );

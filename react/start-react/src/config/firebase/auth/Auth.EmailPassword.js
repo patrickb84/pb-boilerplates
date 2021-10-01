@@ -1,10 +1,18 @@
-import { firebaseAuth } from '../firebase';
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from 'firebase/auth';
 
-const { auth, createUserWithEmailAndPassword, signInWithEmailAndPassword } =
-  firebaseAuth;
+let auth = getAuth();
 
-// Create User
-export const createUser = async (email, password) => {
+/**
+ * Create firebase email/password user
+ * @param {string} email
+ * @param {string} password 
+ * @returns user
+ */
+const createUserWithEmail = async (email, password) => {
   try {
     let userCredential = await createUserWithEmailAndPassword(
       auth,
@@ -22,8 +30,13 @@ export const createUser = async (email, password) => {
   }
 };
 
-// Sign in, email/password
-export const signIn = async (email, password) => {
+/**
+ * Sign in to firebase app with email and password
+ * @param {string} email
+ * @param {string} password
+ * @returns
+ */
+const signInWithEmail = async (email, password) => {
   try {
     let userCredential = await signInWithEmailAndPassword(
       auth,
@@ -41,4 +54,4 @@ export const signIn = async (email, password) => {
   }
 };
 
-export default { signIn, createUser };
+export default { createUserWithEmail, signInWithEmail };
