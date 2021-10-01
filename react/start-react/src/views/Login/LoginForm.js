@@ -8,7 +8,12 @@ const LoginForm = () => {
   const handleSubmit = e => {
     e.preventDefault();
 
-    console.log(email, password);
+    try {
+      // login
+      console.log(email, password);
+    } catch (error) {
+      // error, handle
+    }
   };
 
   return (

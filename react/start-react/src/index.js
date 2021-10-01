@@ -1,6 +1,12 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import App from "./App";
-import "./assets/styles/style.scss";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+import './assets/styles/style.scss';
+import AppContextProvider from './providers/AppContextProvider';
 
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(
+  <AppContextProvider>
+    <App />
+  </AppContextProvider>,
+  document.getElementById('root')
+);
