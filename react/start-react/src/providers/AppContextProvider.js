@@ -1,17 +1,27 @@
-import { createContext, useState, useEffect, useContext } from 'react';
+import { createContext, useState, useEffect, useContext } from "react";
+import auth from "../store/Auth";
 
 const AppContext = createContext({});
 
-const AppContextProvider = props => {
+const AppContextProvider = (props) => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    console.log('AppContextProvider effect fired.');
+    console.log("AppContextProvider effect fired.");
   }, []);
+
+  const login = (email, password) => {
+    try {
+      let user = auth.login(email, password);
+      if (user) setUser(user);
+    } catch (error) {
+      console.error("In AppContextProvider.", error);
+    }
+  };
 
   const values = {
     user,
-    setUser,
+    login,
   };
 
   return (
@@ -19,8 +29,6 @@ const AppContextProvider = props => {
   );
 };
 
-export const useAppContext = () => {
-  return useContext(AppContext);
-};
+export const useAppContext = () => useContext(AppContext);
 
 export default AppContextProvider;
