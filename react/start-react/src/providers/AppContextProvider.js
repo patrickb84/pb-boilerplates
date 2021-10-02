@@ -1,27 +1,29 @@
-import { createContext, useState, useEffect, useContext } from "react";
-import auth from "../store/Auth";
+import { createContext, useEffect, useContext } from 'react';
+import auth from '../store/authorization';
+import useLocalStorage from '../services/useLocalStorage';
 
 const AppContext = createContext({});
 
-const AppContextProvider = (props) => {
-  const [user, setUser] = useState(null);
+const AppContextProvider = props => {
+  const [user, setUser] = useLocalStorage('user', null);
 
   useEffect(() => {
-    console.log("AppContextProvider effect fired.");
-  }, []);
+    console.log('USER:', user);
+  }, [user]);
 
   const login = (email, password) => {
-    try {
-      let user = auth.login(email, password);
-      if (user) setUser(user);
-    } catch (error) {
-      console.error("In AppContextProvider.", error);
-    }
+    let user = auth.login(email, password);
+    if (user) setUser(user);
+  };
+
+  const logout = () => {
+    setUser(auth.logout);
   };
 
   const values = {
     user,
     login,
+    logout,
   };
 
   return (

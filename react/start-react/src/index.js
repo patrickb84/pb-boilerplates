@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
-import "./styles/style.scss";
+import "@styles/main.scss";
 import AppContextProvider from "./providers/AppContextProvider";
 
 ReactDOM.render(
