@@ -21,6 +21,9 @@ const NavBar = () => {
             {/* <LinkContainer to='/login'>
               <Nav.Link>Login</Nav.Link>
             </LinkContainer> */}
+            <LinkContainer to='/posts'>
+              <Nav.Link>Posts</Nav.Link>
+            </LinkContainer>
           </Nav>
 
           {!user ? (

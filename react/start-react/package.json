@@ -5,7 +5,9 @@
   "dependencies": {
     "@craco/craco": "^6.3.0",
     "bootstrap": "5.1.1",
+    "date-fns": "^2.24.0",
     "firebase": "^9.1.0",
+    "lodash": "^4.17.21",
     "node-sass": "5.0.0",
     "react": "^17.0.2",
     "react-bootstrap": "^2.0.0-rc.0",
@@ -19,12 +21,6 @@
     "build": "craco build",
     "test": "craco test",
     "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
   },
   "browserslist": {
     "production": [
