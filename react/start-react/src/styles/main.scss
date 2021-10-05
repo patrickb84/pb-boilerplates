@@ -1,0 +1,27 @@
+html,
+body {
+  height: 100%;
+}
+
+#root {
+  height: 100%;
+}
+
+.h-100 {
+  height: 100%;
+}
+
+.rounded-pill {
+  border-radius: 100px;
+}
+
+.border-0 {
+  border: 0 !important;
+}
+
+.bg-color-transparent {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+@import '_custom';
+@import '~bootstrap/scss/bootstrap';
